@@ -5,7 +5,7 @@ import trimCanvas from 'trim-canvas'
 
 export interface SignatureCanvasProps extends SignaturePad.SignaturePadOptions {
   canvasProps?: React.CanvasHTMLAttributes<HTMLCanvasElement>
-  clearOnResize: boolean
+  clearOnResize?: boolean
 }
 
 export class SignatureCanvas extends Component<SignatureCanvasProps> {
@@ -97,7 +97,7 @@ export class SignatureCanvas extends Component<SignatureCanvasProps> {
   }
 
   _checkClearOnResize = (): void => {
-    if (!this.props.clearOnResize) {
+    if (!this.props.clearOnResize) { // eslint-disable-line @typescript-eslint/strict-boolean-expressions -- this is backward compatible with the previous behavior, where null was treated as falsey
       return
     }
     this._resizeCanvas()
