@@ -168,6 +168,9 @@ export class SignatureCanvas extends Component<SignatureCanvasProps> {
   toData: SignaturePad['toData'] = () => {
     return this.getSignaturePad().toData()
   }
+  toSVG: SignaturePad['toSVG'] = () => {
+    return this.getSignaturePad().toSVG()
+  }
 }
 
 export default SignatureCanvas
